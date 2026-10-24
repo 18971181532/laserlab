@@ -1,6 +1,6 @@
 # LaserLab — 激光器物理与谐振腔仿真工作台
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![CI](https://github.com/18971181532/laserlab/actions/workflows/tests.yml/badge.svg)](https://github.com/18971181532/laserlab/actions/workflows/tests.yml)
 
