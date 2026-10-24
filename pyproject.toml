@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "laserlab"
+version = "1.0.0"
+description = "激光器物理与谐振腔仿真工作台：法布里-珀罗腔、高斯光束、速率方程与弛豫振荡"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "LaserLab contributors" }]
+keywords = ["laser", "optics", "physics", "cavity", "gaussian-beam", "rate-equation", "simulation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/18971181532/laserlab"
+Repository = "https://github.com/18971181532/laserlab"
+
+[tool.setuptools]
+packages = ["laserlab"]

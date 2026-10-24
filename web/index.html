@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaserLab — 激光器物理与谐振腔仿真</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>LaserLab <span>激光器物理与谐振腔仿真工作台</span></h1>
+  <p class="sub">法布里-珀罗腔 · 高斯光束 · 速率方程 · 弛豫振荡 · 纵模谱</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="cavity">谐振腔</button>
+  <button class="tab" data-tab="beam">高斯光束</button>
+  <button class="tab" data-tab="relax">弛豫振荡</button>
+  <button class="tab" data-tab="modes">纵模谱</button>
+</nav>
+
+<main>
+  <!-- 谐振腔 -->
+  <section id="tab-cavity" class="panel active">
+    <div class="controls">
+      <label>腔长 L (m) <input id="cav-length" type="number" value="0.2" step="0.01"></label>
+      <label>反射率 R₁ <input id="cav-r1" type="number" value="0.99" step="0.01" min="0" max="0.999"></label>
+      <label>反射率 R₂ <input id="cav-r2" type="number" value="0.98" step="0.01" min="0" max="0.999"></label>
+      <label>折射率 n <input id="cav-n" type="number" value="1.0" step="0.1"></label>
+      <label>单程损耗 <input id="cav-loss" type="number" value="0.0" step="0.01" min="0" max="0.9"></label>
+      <button class="run" id="cav-run">运行</button>
+    </div>
+    <div class="metrics" id="cav-metrics"></div>
+    <canvas id="cav-canvas" width="900" height="360"></canvas>
+  </section>
+
+  <!-- 高斯光束 -->
+  <section id="tab-beam" class="panel">
+    <div class="controls">
+      <label>腔长 L (m) <input id="beam-length" type="number" value="0.2" step="0.01"></label>
+      <label>镜 1 曲率 R₁ (m) <input id="beam-r1" type="text" value="inf"></label>
+      <label>镜 2 曲率 R₂ (m) <input id="beam-r2" type="number" value="0.5" step="0.05"></label>
+      <label>波长 λ (nm) <input id="beam-wl" type="number" value="1064" step="1"></label>
+      <button class="run" id="beam-run">运行</button>
+    </div>
+    <div class="metrics" id="beam-metrics"></div>
+    <canvas id="beam-canvas" width="900" height="360"></canvas>
+  </section>
+
+  <!-- 弛豫振荡 -->
+  <section id="tab-relax" class="panel">
+    <div class="controls">
+      <label>泵浦比 r = Rp/Rp_th <input id="relax-ratio" type="number" value="2.0" step="0.1" min="1.01"></label>
+      <label>仿真时长 (ms) <input id="relax-tend" type="number" value="1.0" step="0.1" min="0.1"></label>
+      <button class="run" id="relax-run">运行</button>
+    </div>
+    <div class="metrics" id="relax-metrics"></div>
+    <canvas id="relax-canvas" width="900" height="360"></canvas>
+  </section>
+
+  <!-- 纵模谱 -->
+  <section id="tab-modes" class="panel">
+    <div class="controls">
+      <label>介质 <select id="modes-medium">
+        <option value="nd_yag_1064">Nd:YAG @ 1064 nm</option>
+        <option value="nd_yag_1319">Nd:YAG @ 1319 nm</option>
+        <option value="er_glass_1540">Er:Glass @ 1540 nm</option>
+        <option value="hene_633">He-Ne @ 633 nm</option>
+        <option value="ti_sapphire_800">Ti:Sapphire @ 800 nm</option>
+        <option value="co2_10600">CO₂ @ 10.6 μm</option>
+      </select></label>
+      <label>腔长 L (m) <input id="modes-length" type="number" value="0.2" step="0.01"></label>
+      <label>小信号增益 g₀ (1/m) <input id="modes-g0" type="number" value="10" step="1"></label>
+      <button class="run" id="modes-run">运行</button>
+    </div>
+    <div class="metrics" id="modes-metrics"></div>
+    <canvas id="modes-canvas" width="900" height="360"></canvas>
+  </section>
+</main>
+
+<footer>零第三方依赖 · 纯标准库 Python + 手写 Canvas · MIT License</footer>
+<script src="app.js"></script>
+</body>
+</html>

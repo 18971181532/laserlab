@@ -1,0 +1,22 @@
+{
+  "description": "Nd:YAG 1064 nm 半球腔激光器参数示例",
+  "cavity": {
+    "type": "FabryPerot",
+    "n": 1.0,
+    "length": 0.1,
+    "r1": 0.99,
+    "r2": 0.95,
+    "loss": 0.005
+  },
+  "medium": {
+    "name": "nd_yag_1064",
+    "g0": 20.0
+  },
+  "dynamics": {
+    "pump_ratio": 2.5,
+    "t_end_s": 0.001,
+    "tau_upper_s": 2.3e-4,
+    "sigma_m2": 2.8e-23,
+    "photon_lifetime_s": 1.0e-8
+  }
+}
